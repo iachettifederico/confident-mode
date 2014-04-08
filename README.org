@@ -1,0 +1,31 @@
+* confident-mode
+
+confident-mode is an experimental mode for Emacs that allows you to highlight different parts of a method depending of it's role.
+
+The roles are defined in the book Confident Code (by Avdi Grimm)
+
+* Usage
+
+You need to require the mode at some piont in your init proces
+
+#+BEGIN_SRC elisp
+(require 'confident-mode)
+#+END_SRC
+
+Then, on a Ruby file, launc confident mode (M-x confident-mode)
+
+And that's it.
+
+You can annotate any line, adding at the end any of the following comments, and the mode will highlight them:
+
+- # INPUT   :: If the role of the line is "Collecting Input"
+- # OUTPUT  :: If it's delivering output
+- # WORK    :: If the line is efectively performing work
+- # FAILURE :: If the line is handling failure
+
+If you have the mode already loaded, you'll have 4 keybindings to set the annotations for you
+
+- C-# i :: For appending # INPUT
+- C-# o :: For appending # OUTPUT
+- C-# w :: For appending # WORK
+- C-# f :: For appending # FAILURE
