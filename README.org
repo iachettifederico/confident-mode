@@ -5,17 +5,19 @@ confident-mode is an experimental mode for Emacs that allows you to highlight di
 The roles are defined in the book Confident Code (by Avdi Grimm)
 
 * Usage
-
+** Requiring
 You need to require the mode at some piont in your init proces
 
 #+BEGIN_SRC elisp
 (require 'confident-mode)
 #+END_SRC
 
-Then, on a Ruby file, launc confident mode (M-x confident-mode)
+** Launching
+Then, on a Ruby file, launch confident mode (M-x confident-mode)
 
 And that's it.
 
+** Annotations
 You can annotate any line, adding at the end any of the following comments, and the mode will highlight them:
 
 - # INPUT   :: If the role of the line is "Collecting Input"
@@ -23,9 +25,23 @@ You can annotate any line, adding at the end any of the following comments, and 
 - # WORK    :: If the line is efectively performing work
 - # FAILURE :: If the line is handling failure
 
-If you have the mode already loaded, you'll have 4 keybindings to set the annotations for you
+** Functions
+You can add the annotations at the end of the line, using the following functions
+
+- confident-mode/is-input   :: For appending # INPUT
+- confident-mode/is-output  :: For appending # OUTPUT
+- confident-mode/is-work    :: For appending # WORK
+- confident-mode/is-failure :: For appending # FAILURE
+
+Also, the mode provide some keybindings to do it when it's active
 
 - C-# i :: For appending # INPUT
 - C-# o :: For appending # OUTPUT
 - C-# w :: For appending # WORK
 - C-# f :: For appending # FAILURE
+
+Or you can add mappings for ruby-mode
+
+#+BEGIN_SRC elisp
+(local-set-key (kbd "C-c 1") 'confident-mode/is-input)
+#+END_SRC
